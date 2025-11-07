@@ -1,4 +1,10 @@
-﻿<h3>Loginlog</h3>
+﻿@page "/loginlog"
+@using PlayTogether.Web.Services
+@inject Login_service logser
+<h3>Loginlog</h3>
+<span>@logser.loglog</span>
+
+
 
 @code {
     

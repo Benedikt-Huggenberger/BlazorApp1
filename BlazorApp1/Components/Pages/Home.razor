@@ -1,5 +1,27 @@
-﻿<h3>Home</h3>
+﻿@page "/"
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+
+<span>hö wie bist du hier bitte click mal darauf</span>
+<div style="margin-top: 15px;">
+    <button class="btn btn-primary" @onclick="weiterleiten">hier</button>
+</div>
 
 @code {
-    
+    private bool _navigated = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_navigated)
+        {
+            Navigation.NavigateTo("/login");
+            _navigated = true;
+        }
+    }
+
+    private void weiterleiten()
+    {
+        Navigation.NavigateTo("/login");
+
+    }
 }
